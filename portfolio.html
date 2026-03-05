@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Adithya Samala | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        :root {
+            --bg: #0f172a;
+            --accent: #38bdf8;
+            --text: #e2e8f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        /* NAVBAR */
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 8%;
+            background: #020617;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav h2 {
+            color: var(--accent);
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+            padding-bottom: 4px;
+        }
+
+        nav a.active {
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        /* HERO */
+
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .hero span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin-bottom: 30px;
+            font-size: large;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: black;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 90px 8%;
+            border-top: 1px solid #1e293b;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--accent);
+            text-align: center;
+        }
+
+        /* ABOUT + SKILLS */
+
+        .about-skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-section {
+            padding-right: 40px;
+            border-right: 2px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .skills-section {
+            padding-left: 40px;
+        }
+
+        .skill-group {
+            margin-bottom: 20px;
+        }
+
+        .skill-group h3 {
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            background: #1e293b;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            flex: 1;
+            min-width: 280px;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+        }
+
+        .project-card h3 {
+            color: var(--accent);
+            margin-bottom: 10px;
+
+        }
+
+        .project-tech {
+            margin-top: 15px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* EXPERIENCE TIMELINE */
+
+        .timeline {
+            position: relative;
+            margin-top: 40px;
+            padding-left: 30px;
+            border-left: 2px solid var(--accent);
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -15px;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 5px;
+            color: var(--accent);
+        }
+
+        .timeline-date {
+            font-size: 14px;
+            opacity: 0.8;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* CONTACT */
+
+        #contact {
+            text-align: center;
+        }
+
+        .contact-text {
+            margin-bottom: 30px;
+            font-size: large;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            font-size: 30px;
+            margin-bottom: 35px;
+        }
+
+        .social-icons a {
+            color: var(--accent);
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        .connect-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: black;
+            padding: 16px 36px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #94a3b8;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:900px) {
+            .about-skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        .skill:hover {
+            transform: translateY(-2px);
+            border: 1px solid var(--accent);
+        }
+
+        /* ABOUT LAYOUT */
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        /* ABOUT TEXT */
+
+        .about-text p {
+            margin-bottom: 32px;
+            line-height: 1.7;
+            font-size: large;
+        }
+
+        /* SKILLS CARDS */
+
+        .skills-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: #1e293b;
+            padding: 22px 26px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .skill-card h3 {
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        /* SKILLS */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            background: rgba(56, 189, 248, 0.15);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:900px) {
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        .timeline-content ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .timeline-content li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h2>Adithya Samala</h2>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section id="home" class="hero">
+
+        <h1>Hello, I'm <span>Adithya Samala</span></h1>
+
+        <p>
+            Software Engineer with 2+ years of experience building scalable backend systems using Java, Spring Boot,
+            SQL and Docker. Passionate about backend architecture and distributed systems.
+        </p>
+
+        <a class="btn" href="mailto:adithyasamala7@gmail.com?subject=Portfolio Contact">
+            Contact Me </a>
+
+    </section>
+
+    <section id="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-container">
+
+            <div class="about-text">
+
+                <p>
+                    I’m a passionate Backend Developer with 3+ years of experience crafting scalable web applications
+                    that
+                    tackle real-world challenges. I enjoy working with modern technologies, shaping clean architectures,
+                    and
+                    building products that create genuine value for users.
+                </p>
+
+                <p>
+                    I love sharpening my logical instincts through Data Structures & Algorithms and puzzles, and I’m
+                    always
+                    exploring new tools or ideas that stretch my thinking as a developer.
+                </p>
+
+                <p>
+                    When I’m away from the keyboard, you’ll usually find me reading a book, in the middle of a workout,
+                    or
+                    doing something that keeps both mind and body switched on.
+                </p>
+
+            </div>
+
+            <div class="skills-cards">
+
+                <div class="skill-card">
+
+                    <h3>Programming Languages</h3>
+
+                    <div class="skills">
+                        <span class="skill">Java</span>
+                        <span class="skill">C++</span>
+                        <span class="skill">JavaScript</span>
+                    </div>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <h3>Frameworks</h3>
+
+                    <div class="skills">
+                        <span class="skill">Spring Boot</span>
+                        <span class="skill">Spring Cloud</span>
+                    </div>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <h3>Tools</h3>
+
+                    <div class="skills">
+                        <span class="skill">Git</span>
+                        <span class="skill">VS Code</span>
+                        <span class="skill">Eclipse</span>
+                        <span class="skill">Postman</span>
+                        <span class="skill">Jira</span>
+                        <span class="skill">Confluence</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="experience">
+
+        <h2 class="section-title">Work Experience</h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+                    <h3>Software Engineer - Copart</h3>
+                    <span class="timeline-date">2023 – Present</span>
+
+                    <ul>
+                        <li>Redesigned the <b>authorization system</b> of the company's internal portal by implementing
+                            <b>Role-Based Access
+                                Control (RBAC)</b>.
+                        </li>
+                        <li>Integrated the employee lifecycle management system with <b>Workday</b> using <b>Kafka
+                                event-driven
+                                architecture</b>.</li>
+                        <li>Automated employee lifecycle actions including <b>onboarding, termination, and deactivation
+                                in Active
+                                Directory</b>.</li>
+                        <li>Implemented an <b>agent status tracking mechanism using Redis</b> to improve coordination in
+                            distributed
+                            systems.</li>
+                        <li>Worked on backend architecture improvements and handled reliability challenges in
+                            distributed service
+                            environments.</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+                    <h3>Intern Software Engineer - Copart</h3>
+                    <span class="timeline-date">2022 – 2023</span>
+                    <ul>
+                        <li>Resolved minor bugs and stability issues in backend services supporting internal web
+                            applications.</li>
+                        <li>Developed REST APIs consumed by the frontend to support internal workflows.</li>
+                        <li>Integrated third-party systems including <b>New Relic, GitHub, and Tableau</b> for user and
+                            license management.
+                        </li>
+                        <li>Assisted in integrating external application APIs into the company’s internal platform.</li>
+                        <li>Gained hands-on experience working with <b>production systems, backend development, and
+                                enterprise
+                                integrations</b>.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section id="projects" class="projects-section">
+
+        <h2 class="section-title">Projects</h2>
+
+        <div class="projects">
+
+            <div class="project-card">
+
+                <h3>Prompt-It</h3>
+
+                <p>
+                    Prompt-It is an AI powered application designed to help working professionals use AI tools
+                    effectively
+                    without learning prompt engineering.
+                    The system converts raw user input into optimized prompts tailored for different AI platforms,
+                    improving
+                    output quality and productivity.
+                </p>
+
+                <p class="project-tech">
+                    Java • Spring Boot • React • REST APIs
+                </p>
+
+            </div>
+
+            <div class="project-card">
+
+                <h3>Task Router System</h3>
+
+                <p>
+                    Designed a scalable task routing system inspired by Twilio TaskRouter.
+                    The system intelligently assigns tasks to available workers, monitors worker availability, and
+                    supports
+                    fallback queue mechanisms to ensure reliable task processing.
+                </p>
+
+                <p class="project-tech">
+                    Java • Spring Boot • Distributed Task Processing
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <h2 class="section-title">Contact</h2>
+
+        <p class="contact-text">
+            Feel free to reach out if you'd like to collaborate, discuss opportunities, or just connect.
+        </p>
+
+        <div class="social-icons">
+
+            <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME" target="_blank">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+
+            <a href="tel:+91YOURPHONENUMBER">
+                <i class="fa-solid fa-phone"></i>
+            </a>
+
+        </div>
+
+        <a class="connect-btn"
+            href="mailto:adithyasamala7@gmail.com?subject=Portfolio Contact&body=Hi Adithya, I saw your portfolio and would like to connect.">
+            Let's Connect </a>
+
+    </section>
+
+
+
+
+    <footer>
+
+        <p>© 2026 Adithya Samala</p>
+
+    </footer>
+
+    <script>
+
+        /* highlight navbar section while scrolling */
+
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll("nav a");
+
+        window.addEventListener("scroll", () => {
+
+            let current = "";
+
+            sections.forEach(section => {
+
+                const sectionTop = section.offsetTop;
+
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute("id");
+                }
+
+            });
+
+            navLinks.forEach(link => {
+
+                link.classList.remove("active");
+
+                if (link.getAttribute("href") === "#" + current) {
+                    link.classList.add("active");
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
